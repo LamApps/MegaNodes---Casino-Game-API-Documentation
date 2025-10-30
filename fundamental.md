@@ -1,0 +1,155 @@
+# ⚙️ MegaNodes API — Fundamentals
+
+This page provides a **basic understanding** of how the MegaNodes API works.
+
+Once you have taken a glance at our API, let's move forward to the next step right now.
+
+---
+
+## 🧰 What You Need to Start
+
+Before you begin, we assume you already have:
+
+- A basic understanding of **RESTful APIs**
+- Familiarity with **Node.js**, **PHP**, or other backend programming languages
+
+You will need an **API_TOKEN** issued by our administrators.  
+This token acts as your **unique identity** to bypass our security checks.
+
+> ⚠️ Please keep your token string confidential.  
+> Exposing your API token may lead to unauthorized access, and MegaNodes is **not responsible** for misuse caused by token exposure.
+
+---
+
+### 🔑 Example API Token
+
+ed45553e-1702-4342-a70d-09bf7ff7f568
+
+---
+
+### 🧾 Account & Token Management
+
+You will receive one or more **back office accounts** based on your currency requirements.  
+Each account corresponds to a **single currency** — if you need support for multiple currencies, you’ll need separate accounts for each.
+
+You can find your **API_TOKEN** inside your **back office account** under settings.
+
+- 🔗 **Back Office URL:** [https://sc4-admin-tr1.dreamgates.net/](https://sc4-admin-tr1.dreamgates.net/)
+
+If you do not yet have your credentials, please **contact us** to obtain your accounts.
+
+---
+
+## 📬 HTTP Headers
+
+All HTTP requests sent to the MegaNodes API must include the following headers:
+
+| Name | Value | Example |
+|------|--------|----------|
+| **Authorization** | Bearer `{API_TOKEN}` | `Authorization: Bearer ed45553e-1702-4342-a70d-09bf7ff7f568` |
+| **Accept** | `application/json` | `Accept: application/json` |
+| **Content-Type** | `application/json` | `Content-Type: application/json` |
+
+These headers ensure authenticated, properly formatted communication with the MegaNodes servers.
+
+---
+
+## 🧱 System Security
+
+To maintain stability and prevent abuse:
+
+- Simultaneous calls from the same **agent** are limited to **50 concurrent requests**.  
+- If this limit is exceeded, the API returns the error:
+
+SERVER_IS_BUSY (1018)
+
+
+When this occurs, **wait for the current requests to complete** before retrying.
+
+---
+
+## 🌐 IP Restriction
+
+The MegaNodes API can **only** be accessed from IP addresses specified in your **Back Office → Settings** page.
+
+- Add multiple IPs by separating them with a **space** or **newline**  
+  Example:
+1.1.1.1
+2.2.2.2
+
+
+If you prefer not to restrict access by IP, leave the **Allowed IP** field blank.
+
+---
+
+## 🔄 Basic Workflow
+
+### 👤 1. Creating Users
+Every player must first be created in the MegaNodes system.  
+Even if you already have a player table in your own database, our API synchronizes user data to ensure accurate identification.
+
+Once a user is created, the system assigns a unique integer called **`user_code`**, which serves as the player’s permanent ID within MegaNodes.
+
+---
+
+### 🎮 2. Game Launch
+When a player opens a game:
+1. Your system calls the **MegaNodes API** to obtain a **one-time-use game URL**.  
+2. Your casino then **redirects the player** to that URL.  
+3. The player can place bets, win, or lose — all recorded in real time via our API.
+
+---
+
+### 💸 3. Bet and Win/Lose Processing
+When the player places a bet:
+- The MegaNodes API generates results based on your casino’s **RTP settings**.
+- It automatically records the **transaction history**.
+- Player balances are updated instantly.
+
+If a transaction fails (e.g., network interruption or timeout), **all funds are automatically refunded** to ensure no player losses occur due to system errors.
+
+---
+
+## 🧩 Agent Subsystems
+
+- An **Agent** represents a **single casino website operator**.  
+- An **Operator** manages one or more agents under their control.  
+
+Operators can:
+- Create and manage **sub-agents**
+- Oversee transactions and balances
+- Manage their entire agent tree via the **[Agent → Agents Treeview]** page in the back office
+
+If you are a **broker** reselling the API, you can also create and manage multiple **Operators** under your structure.
+
+---
+
+## 💰 Balance System
+
+Each **agent** is assigned a **digital wallet** containing **points** — the system’s internal currency used for all casino operations.
+
+- Agents require sufficient points to operate their casino.
+- Points can be **transferred from parent operators** to their sub-agents.
+- This hierarchical flow of points ensures smooth, traceable operations.
+
+Without enough points, an agent cannot launch games or process bets.
+
+---
+
+## 🔄 Integration Models
+
+MegaNodes API supports **two integration models**:
+
+1. **Seamless Mode**  
+ The player’s balance is managed directly through your platform.  
+ MegaNodes only requests balance updates from your wallet API.
+
+2. **Money Transfer Mode**  
+ The player’s balance is managed inside the MegaNodes system.  
+ Funds are transferred between your platform and MegaNodes via API calls.
+
+---
+
+By following these fundamentals — token-based authentication, proper header usage, IP whitelisting, and structured agent management — you can integrate with confidence and efficiency.
+
+> 🏗️ Next: Proceed to **Seamless Mode** to learn how to launch your first MegaNodes game session.
