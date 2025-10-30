@@ -96,5 +96,5 @@ MegaNodes API is your **all-in-one casino integration framework**, built to stre
 ---
 
 ### 📫 Contact
-For documentation access, API keys, or integration support, please visit **https://scorpioplay.com**.
+For documentation access, API keys, or integration support, please visit **[https://scorpioplay.com](https://scorpioplay.com/contact)**.
 
