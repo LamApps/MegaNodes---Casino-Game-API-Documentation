@@ -82,5 +82,5 @@ Customer satisfaction is at the heart of MegaNodes.
 
 MegaNodes API empowers operators to build **scalable**, **secure**, and **high-performing** casino platforms — complete with flexible RTP settings, multilingual support, and integrated bonuses — all at an affordable cost.
 
-> Build smarter, faster, and more profitably with **SlotCity API**.
+> Build smarter, faster, and more profitably with **MegaNodes API**.
 
