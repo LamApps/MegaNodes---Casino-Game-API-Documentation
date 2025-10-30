@@ -5,7 +5,7 @@
 The **MegaNodes API** is a collection of modern protocols and developer tools that enable **casino platforms** to integrate seamlessly with our system, offering players a **diverse range of gaming content** — including **slots** and **live casino games**.
 
 Interested in exploring demo games from the MegaNodes API?  
-👉 [**Click here to check them out.**](#https://scorpioplay.com/slots-api)
+👉 [**View MegaNodes demo games**](https://scorpioplay.com/slots-api)  
 
 ---
 
